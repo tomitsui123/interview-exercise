@@ -6,7 +6,7 @@
     "test": "jest --watchAll",
     "build": "npx tsc",
     "start": "node bin/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ts-built/bin/index.js\""
+    "dev": "nodemon --experimental-specifier-resolution=node --watch '*.ts' --exec ts-node bin/index.ts"
   },
   "type": "module",
   "dependencies": {
