@@ -7,12 +7,11 @@ import todoRouter from './routes/todo'
 
 var app: Express = express()
 
-const __dirname = path.resolve()
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(path.resolve(), 'public')))
 
 app.use('/', indexRouter)
 app.use('/todos', todoRouter)
