@@ -18,5 +18,9 @@ describe('TODO api', () => {
       })
   })
 
+  it('GET /todos/{userName} --> 404 if not found', () => {
+    return request(app).get('/todos/error').expect(404)
+  })
+
   it('POST /todos/{userName} --> create a todo item of a specific user', () => {})
 })
