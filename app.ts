@@ -7,6 +7,7 @@ import todoRouter from './routes/todo'
 
 var app: Express = express()
 
+const __dirname = path.resolve()
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
