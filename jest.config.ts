@@ -1,8 +1,6 @@
-import type { Config } from 'jest'
-
-const config: Config = {
+const config = {
   verbose: true,
-  preset: "ts-jest"
+  preset: 'ts-jest',
 }
 
 export default config
