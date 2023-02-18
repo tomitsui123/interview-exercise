@@ -1,0 +1,161 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Backend Developer (NodeJS) - Simple todo list",
+    "description": "You are helping a small company to write a service to help keep track of some To Do list items. Using NodeJS and related frameworks, create the necessary APIs to create new To Do list item AND reading To Do list items belong to a specific user. \n\nFor this exercise, you can omit:\n\n  1.  Authentication and Authorization\n  2.  Security and Exception monitoring\n\n\nThe goal is for us to gain an understanding on your logic, approach to solve a problem and the level of your skillset in NodeJS.",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "tomitsui123@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "todos",
+      "description": "Everything about executing the todo list"
+    }
+  ],
+  "paths": {
+    "/todos/{user}": {
+      "get": {
+        "tags": ["todos"],
+        "operationId": "fetchTodoList",
+        "description": "Get a list of todo list items of a specific user",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "description": "The name that needs to be fetched. Use tommy for testing.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Todos"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Todos"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["todos"],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "description": "The name that needs to be fetched. Use user1 for testing. ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "Create a new todo list item",
+        "operationId": "addTodo",
+        "requestBody": {
+          "description": "Create a new todo list item",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTodoItem"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTodoItem"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTodoItem"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful creation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Todo"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Todo"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Todo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "name": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "Todo"
+        }
+      },
+      "CreateTodoItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "Todo"
+        }
+      },
+      "Todos": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Todo"
+        }
+      }
+    }
+  }
+}
