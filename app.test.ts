@@ -22,5 +22,9 @@ describe('TODO api', () => {
     return request(app).get('/todos/error').expect(404)
   })
 
-  it('POST /todos/{userName} --> create a todo item of a specific user', () => {})
+  it('POST /todos/{userName} --> create a todo item of a specific user', () => {
+    return request(app).post('/todos/tommy').send({
+        name: 'complete the coding test'
+    }).expect(201)
+  })
 })
