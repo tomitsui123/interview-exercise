@@ -5,7 +5,7 @@ This project will only contain two main features, which is to create to-do list 
 # Getting started
 - Clone the repository
 ```
-git clone  <git lab template url> <project_name>
+git clone https://github.com/tomitsui123/interview-exercise 
 ```
 - Install dependencies
 ```
@@ -20,9 +20,6 @@ yarn dev
 
 - API Document endpoints
 
-  swagger Spec Endpoint : http://localhost:8001/api-docs 
+  swagger Spec Endpoint : http://localhost:3000/api-docs 
 
-  swagger-ui  Endpoint : http://localhost:8001/docs 
-
-## Production Deployment
 ## Docker deployment
