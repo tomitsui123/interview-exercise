@@ -5,8 +5,8 @@
   "scripts": {
     "test": "jest --watchAll",
     "build": "npx tsc",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q bin/index.js\""
     "start": "node bin/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ts-built/bin/index.js\""
   },
   "type": "module",
   "dependencies": {
