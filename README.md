@@ -21,5 +21,3 @@ yarn dev
 - API Document endpoints
 
   swagger Spec Endpoint : http://localhost:3000/api-docs 
-
-## Docker deployment
