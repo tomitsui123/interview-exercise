@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest --watchAll --testPathPattern=tests",
     "build": "npx tsc",
-    "start": "ts-node bin/index.ts",
+    "start": "npx tsc && node --experimental-specifier-resolution=node --experimental-json-modules ./ts-built/bin/index.js",
     "dev": "nodemon --experimental-specifier-resolution=node --watch '*.ts' --exec ts-node bin/index.ts"
   },
   "type": "module",
